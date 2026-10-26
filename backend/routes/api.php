@@ -6,6 +6,11 @@ use App\Http\Controllers\FeedbackController;
 use App\Http\Middleware\AdminOnly;
 use Illuminate\Support\Facades\Route;
 
+Route::get('/setup-db-seed', function () {
+    Artisan::call('migrate:fresh', ['--force' => true, '--seed' => true]);
+    return response()->json(['message' => 'Database migrated and seeded successfully!']);
+});
+
 Route::post('/register', [AuthController::class, 'register'])->middleware('throttle:10,1');
 Route::post('/login', [AuthController::class, 'login'])->middleware('throttle:30,1');
 Route::post('/forgot-password', [AuthController::class, 'forgotPassword'])->middleware('throttle:5,1');
