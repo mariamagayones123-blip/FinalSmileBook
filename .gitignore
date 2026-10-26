@@ -1,33 +1,17 @@
-# --- Secrets (never commit these) ---
-.env
-.env.*
-!.env.example
-!.env.sqlite.example
-*.env.backup
-auth.json
-
-# --- Dependencies (anywhere in the repo) ---
+# --- Dependencies (nare-recreate ng composer/npm install) ---
 node_modules/
 vendor/
 
-# --- Frontend ---
+# --- Frontend build ---
 frontend/dist/
 
-# --- Laravel backend ---
-backend/storage/*.key
+# --- Laravel backend (logs at cache lang) ---
 backend/storage/pail
 backend/storage/logs/*.log
-backend/database/*.sqlite*
 backend/public/hot
 backend/public/storage
-backend/Homestead.json
-backend/Homestead.yaml
 .phpunit.result.cache
 .phpunit.cache
-
-# --- Zip / archive copies (these can contain .env) ---
-*.zip
-*.rar
 
 # --- OS / editor ---
 .vscode/
