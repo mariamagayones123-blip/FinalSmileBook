@@ -22,5 +22,5 @@ RUN composer install --no-dev --optimize-autoloader
 # Expose Render default port
 EXPOSE 10000
 
-# Run database migrations and launch server
-CMD php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=10000
+# Run database migrations, seed initial data, and launch server
+CMD php artisan migrate --force && php artisan db:seed --force && php artisan serve --host=0.0.0.0 --port=10000
